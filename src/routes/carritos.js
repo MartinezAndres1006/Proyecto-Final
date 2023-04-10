@@ -13,7 +13,7 @@ carritosRouter.get('/', async (req, res) => {
         
         const {nombre,imagen}= req.user
         if (carritos) {
-            res.render('carritoVista', { carritos,nombre,imagen });
+            res.status(200).render('carritoVista', { carritos,nombre,imagen });
         } else {
             res.status(404).json({ message: 'No hay carritos disponibles' });
         }

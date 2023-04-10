@@ -12,7 +12,7 @@ function sendEmail(correo, nombre) {
     });
   
     const message = {
-      from: 'amartinezcarrillo1006@gmail.com',
+      from: 'elmagomp11@gmail.com',
       to: correo,
       subject: 'Bienvenido a nuestro sitio web',
       text: `Hola ${nombre},\n\n¡Gracias por registrarte en nuestro sitio web! Esperamos que disfrutes de nuestros productos y servicios.\n\nSaludos cordiales`

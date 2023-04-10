@@ -7,8 +7,8 @@ productRouter.get('/', async (req, res) => {
     try{
         const productos = await productosDao.getAll();
         if (productos) {
-            res.render('products', { productos });
-            // res.json(productos)
+            // res.render('products', { productos });
+            res.json(productos)
         } else {
             res.status(404).json({ message: 'No hay productos disponibles' });
         }
@@ -35,7 +35,7 @@ productRouter.get('/:id', async (req, res) => {
 productRouter.post('/', async (req, res) => {
     try{
         const nuevoProducto = await productosDao.create(req.body);
-        res.status(201).json({
+        res.status(200).json({
             message: 'Producto creado',
             producto:nuevoProducto});
     }catch (err){
