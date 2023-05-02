@@ -11,10 +11,9 @@ import { modeServer,portServer } from "./src/config/yargsconfig.js";
 import cluster from "cluster";
 import core from 'os'
 dotenv.config({ path: './.env' })
-import compression from "compression";
+
 
 // Variables 
-const clave = "coder"
 const puerto = portServer || 8080
 const mode = modeServer || "Fork"
 const cpu = core.cpus().length
@@ -41,7 +40,7 @@ if (cluster.isPrimary && modeServer == 'cluster') {
     const app = express()
     
     // compression
-    // app.use(compression())
+   
 
     app.listen(puerto, (req, res) => {
         console.log(`Servidor corriendo con un proceso ${process.pid} y su puerto ${puerto} en el modo ${mode}`);
@@ -49,7 +48,7 @@ if (cluster.isPrimary && modeServer == 'cluster') {
 
 
     app.use(session({
-        secret: clave,
+        secret: process.env.clave,
         resave: true,
         store: MongoStore.create({
             mongoUrl: AtlasMongo

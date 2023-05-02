@@ -1,7 +1,7 @@
 import passport from 'passport'
 import local from "passport-local";
 import usuarios from '../DB/models/usuarios.js'
-import bcrypt from 'bcryptjs'
+import { compareSync } from 'bcrypt';
 const localStrategy= local.Strategy
 
 
@@ -16,7 +16,8 @@ passport.use('registro', new localStrategy({
         }
         const nuevoUsuario = new usuarios();
         nuevoUsuario.nombre = nombre;
-        nuevoUsuario.password = password;
+        const contraseniaEncryp = await nuevoUsuario.encriptarContrasenia(password);
+        nuevoUsuario.password =contraseniaEncryp;
         nuevoUsuario.correo= req.body.correo;
         nuevoUsuario.direccion=req.body.direccion;
         nuevoUsuario.edad=req.body.edad;
@@ -38,8 +39,8 @@ passport.use('login', new localStrategy({
             return done(null, false, { message: 'El usuario no existe' });
         }
 
-
-        if (usuario.password !== password) {
+        const comparar =  compareSync(req.body.password,password)
+        if (comparar) {
             return done(null, false, { message: 'La contraseña es incorrecta' });
         }
         return done(null, usuario);

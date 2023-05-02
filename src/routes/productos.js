@@ -7,8 +7,8 @@ productRouter.get('/', async (req, res) => {
     try{
         const productos = await productosDao.getAll();
         if (productos) {
-            // res.render('products', { productos });
-            res.json(productos)
+            res.render('products', { productos });
+            // res.json(productos)
         } else {
             res.status(404).json({ message: 'No hay productos disponibles' });
         }

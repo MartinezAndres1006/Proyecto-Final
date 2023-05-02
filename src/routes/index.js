@@ -1,6 +1,5 @@
 import { Router } from 'express';
 const router = Router();
-import log4js from 'log4js'
 import carritosRouter from './carritos.js';
 import productRouter from './productos.js';
 import sendEmail from '../config/nodemailer.js';
@@ -19,37 +18,6 @@ router.use("/perfil",perfil)
 router.use("/login",login)
 router.use("/logout",logout)
 router.use("/registro",registro)
-log4js.configure({
-    appenders:{
-        consola: { type: "console" },
-        info: { type: "file", filename: './.log/debug.log'},
-        warn:{type:"file",filename: './.log/warn.log'},
-        error:{type:"file",filename:'./.log/error.log'} 
-    },
-
-
-    categories:{
-        default:{
-            appenders: ["consola","info"],
-            level:"ALL"
-        },
-        error:{
-            appenders:["error"],
-            level:"ERROR"
-        },
-        warn:{
-            appenders:["warn"],
-            level:"WARN"
-        }
-
-    }
-})
-
-const logger= log4js.getLogger('error')
-
-
-
-
 
 
 router.get('/', (req, res) => {
@@ -73,11 +41,9 @@ router.get('/errorRegistro', (req, res) => {
 
 router.get('/errorLogin', (req, res) => {
     res.render('errorLogin');
-    logger.error('Faltan Datos, o los que estan son incorrectos')
 });
 
   router.use(function(req, res, next) {
-    logger.warn('La ruta seleccionada no existe')
     res.status(404).render('../views/rutaUndefined');
   });
   

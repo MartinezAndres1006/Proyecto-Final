@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import bcrypt from 'bcrypt'
  const UserSchema = new mongoose.Schema({
     nombre:String,
     telefono:String,
@@ -9,6 +9,17 @@ import mongoose from "mongoose";
     password:String,
     imagen:String
     
-})
+});
+
+UserSchema.methods.encriptarContrasenia = async (contrasenia) => {
+    return bcrypt.hashSync(contrasenia,bcrypt.genSaltSync(8));
+}
+
+
+
+
+
+
+
 
 export default mongoose.model("usuarios",UserSchema)

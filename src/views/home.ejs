@@ -45,7 +45,32 @@
             </div>
           </nav>
 
-          
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://tn.com.ar/resizer/8GxNLZmdFaKAUNE-aqpJrYRlwOs=/767x0/smart/filters:format(webp)/cloudfront-us-east-1.images.arcpublishing.com/artear/4DGEZB5BRFHZ5GMPQ533LIC43M.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://media.ambito.com/p/117087d3af37f392da1e83fbbb2fbe47/adjuntos/239/imagenes/040/084/0040084397/celularesjpg.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/03/galaxy-a52-a52-5g-a72-2267959.jpg?tf=3840x" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
 
 
 
@@ -55,13 +80,12 @@
 
         
       <div class="d-flex justify-content-center flex-end">
-      <form class="col-md-6 center-block" action="/productos" enctype="multipart/form-data" method="post">
+      <form class="col-md-6 center-block" action="/productos" method="post">
                     <h1 class="letra">Ingreso de productos a la pagina</h1>
                     <div class="form-group">
       
                         <label for="exampleInputEmail1">Ingresa tu producto acá</label>
-                        <input name="articulo" type="name" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Producto">
+                        <input type="text" name="articulo" placeholder="Ingresa tu articulo" class="form-control"></input>
                         <small id="emailHelp" class="form-text text-muted">Cada producto que ingreses, va a aparecer en
                             el
                             siguiente apartado</small>
