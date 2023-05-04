@@ -1,6 +1,6 @@
 # Proyecto final Coderhouse-Backend
 Primero y principal quiero agradecer por tanta paciencia al momento de dar las clases. Se ve que tiene mucha vocacion por lo que hace.
-Acá esta el proyecto.
+Acá entrego el proyecto 
 
 
 ## Para clonar el proyecto
@@ -25,3 +25,17 @@ npm run start || nodemon app.js
 
 node app.js inicio --puerto=1006 --mode=cluster
 ```
+
+## Rutas que use al momento de realizar el proyecto
+
+
+- /productos
+- /ordenes (En esta ruta esta incluido el nodemailer con gmail)
+- /carrito
+- /perfil
+- /login
+- /logout
+- /refistro
+- /home
+
+# 🚧 Frontend en construccion para portafolio🚧
