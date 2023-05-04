@@ -29,13 +29,19 @@ node app.js inicio --puerto=1006 --mode=cluster
 ## Rutas que use al momento de realizar el proyecto
 
 
-- /productos
-- /ordenes (En esta ruta esta incluido el nodemailer con gmail)
-- /carrito
-- /perfil
-- /login
-- /logout
-- /refistro
-- /home
+- Node.js
+- MongoDB
+- Passport 
+- Mongoose
+- Bcrypt
+- Dotenv
+- Ejs
+- Nodemailer
+
+
+
+
 
 # 🚧 Frontend en construccion para portafolio🚧
+
+
