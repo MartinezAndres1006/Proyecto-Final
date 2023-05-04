@@ -1,6 +1,6 @@
 # Proyecto final Coderhouse-Backend
 Primero y principal quiero agradecer por tanta paciencia al momento de dar las clases. Se ve que tiene mucha vocacion por lo que hace.
-Acá entrego el proyecto 
+Acá entrego el proyecto, tiene lo justo pedido en las consignas de front, el resto esta hecho en back para comprobarse por back!!
 
 
 ## Para clonar el proyecto
