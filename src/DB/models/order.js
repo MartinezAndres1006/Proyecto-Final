@@ -14,6 +14,10 @@ const orderSchema = new mongoose.Schema({
             cantidad:{
               type:Number,
               default:1
+            },
+            estado:{
+              type:String,
+              default:"generada"
             }
           }
     ],

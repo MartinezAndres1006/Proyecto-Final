@@ -5,8 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "mocha src/test/apiRest.test.js",
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "fork": "nodemon app.js --mode=",
     "cluster": "nodemon app.js inicio --puerto=8080 --mode=cluster"
   },
