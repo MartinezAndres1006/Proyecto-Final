@@ -34,13 +34,31 @@ catch(err){
 
 ordersRouter.post('/', async (req,res)=>{
     const newOrder = await orderDao.create(req.body);
+    const articulos = newOrder.products.map(producto => producto.articulo);
+    console.log(articulos);
+    
+    const total = newOrder.products.reduce((accumulator, producto) => {
+        return accumulator + producto.precio;
+      }, 0);
+    
+      
 
+
+    
     try {
         const mailOptions = {
             from: process.env.email,
             to: req.body.email,
-            subject: 'Prueba realizada!!!',
-            html: `Su orden fue creada con exito \n ${newOrder.products}`}
+            subject: 'Comprobante de compra',
+            html: `Su orden fue creada con exito \n <h1>Productos</h1>\n
+            <p><b>${articulos}</b></p>\n
+            <p><b>El subtotal es: $${total}</b></p>
+            <p>Su direccion de envio es ${newOrder.direccion}</p>
+            
+            
+            
+            
+            `}
 
             const info = await transporter.sendMail(mailOptions)
   console.log(info)
