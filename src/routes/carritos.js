@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { carritosDao } from "../Services/daos/daosPadre.js";
+import { carritosDao ,orderDao } from "../Services/daos/daosPadre.js";
 
 const carritosRouter =Router()
 
@@ -10,7 +10,7 @@ carritosRouter.get('/', async (req, res) => {
     try {
         const carritos = await carritosDao.getAll();
         
-        
+        // res.json(carritos)
         const {nombre,image}= req.user
         if (carritos) {
             res.status(200).render('carritoVista', { carritos,nombre,image });
@@ -60,7 +60,7 @@ carritosRouter.post('/', async (req, res) => {
 
 carritosRouter.post('/:id/productos', async (req, res) => {
     try {
-        const carrito = await carritosDao.getById(req.params.id); 
+        const carrito = await carritosDao.getById(req.params.id);
         const productos = req.body; // array de objetos 
         if (carrito && productos) {
             const carritoUpdated = await carritosDao.addProductos(carrito, productos);
@@ -79,7 +79,6 @@ carritosRouter.post('/:id/productos', async (req, res) => {
         res.status(500).json({message: err.message, line: err.line});
     }
 });
-
 
 carritosRouter.delete('/:id', async (req, res) => {
     try{

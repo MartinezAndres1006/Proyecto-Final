@@ -8,7 +8,7 @@ import perfil from './perfil.js';
 import login from './login.js';
 import logout from './logout.js';
 import registro from './registro.js';
-
+import ordersRouter from './ordenes.js';
 
 
 router.use("/productos",productRouter)
@@ -18,21 +18,11 @@ router.use("/perfil",perfil)
 router.use("/login",login)
 router.use("/logout",logout)
 router.use("/registro",registro)
-
+router.use("/ordenes",ordersRouter)
 
 router.get('/', (req, res) => {
     res.redirect('login');
 });
-
-
-router.get("/compraFinalizada",(req,res)=>{
-const {nombre,imagen,correo}=req.user
-
-sendEmail(correo, nombre);
-res.render("compra",{nombre,imagen})
-
-
-})
 
 router.get('/errorRegistro', (req, res) => {
     

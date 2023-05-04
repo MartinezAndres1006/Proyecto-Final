@@ -15,7 +15,10 @@ UserSchema.methods.encriptarContrasenia = async (contrasenia) => {
     return bcrypt.hashSync(contrasenia,bcrypt.genSaltSync(8));
 }
 
+UserSchema.methods.compararContrasenia= async (password)=>{
 
+    return bcrypt.compareSync(password,this.password)
+}
 
 
 

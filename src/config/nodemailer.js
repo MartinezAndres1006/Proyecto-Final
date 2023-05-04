@@ -1,31 +1,41 @@
-import nodemailer from 'nodemailer'
+import { createTransport } from 'nodemailer';
+import dotenv from 'dotenv'
+
+dotenv.config({path:"./.env"})
+
+const TEST_MAIL = process.env.email
 
 
-function sendEmail(correo, nombre) {
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        auth: {
-            user: 'earlene.streich@ethereal.email',
-            pass: 'rGHqNVJDYZa3wGj4SQ'
-        }
-    });
-  
-    const message = {
-      from: 'elmagomp11@gmail.com',
-      to: correo,
-      subject: 'Bienvenido a nuestro sitio web',
-      text: `Hola ${nombre},\n\n¡Gracias por registrarte en nuestro sitio web! Esperamos que disfrutes de nuestros productos y servicios.\n\nSaludos cordiales`
-    };
-  
-    transporter.sendMail(message, function(error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Correo electrónico enviado: ' + info.response)
-        ;
-      }
-    });
+ const transporter = createTransport({
+  service: 'gmail',
+  port: 587,
+  auth: {
+      user: TEST_MAIL,
+      pass: process.env.claveEmail
   }
-  
-  export default sendEmail
+});
+
+export default transporter
+
+
+// const mailOptions = {
+//   from: TEST_MAIL,
+//   to: 'alenarty1006@gmail.com',
+//   subject: 'Prueba realizada!!!',
+//   html: 'Orden realizada'
+// }
+
+// try {
+//   const info = await transporter.sendMail(mailOptions)
+//   console.log(info)
+// } catch (err) {
+//   console.log(err)
+// }
+
+
+
+
+
+
+
+

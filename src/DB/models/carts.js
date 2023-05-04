@@ -12,8 +12,10 @@ const cartSchema = new mongoose.Schema({
         }
       },
     
-  ],
-});
+  ],timestamp:{
+    type:Date,
+    default:Date.now
+}});
 
 export default cartSchema
 

@@ -7,13 +7,13 @@ export default class MongoCarts extends Mongodb {
     }
    
     async addProductos(carrito, productos) {
-        productos.find(producto => {
+        Object.entries(productos).forEach(producto => {
             // chequear si el producto ya esta en el carrito
-           const productoEnCarrito = carrito.productos.find(p => p._id == producto._id);
+           const productoEnCarrito = carrito.products.find(p => p._id == producto._id);
               if (productoEnCarrito) {
                     productoEnCarrito.cantidad ++;
             }else { 
-              carrito.productos.push(producto);
+              carrito.products.push(producto);
             }
         });
         const carritoUpdated = await this.collection.findByIdAndUpdate(carrito._id, {productos: carrito.productos});
